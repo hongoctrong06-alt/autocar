@@ -1,0 +1,23 @@
+
+.product-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+
+.text-secondary i {
+    color: #6c757d;
+    width: 16px; 
+    text-align: center;
+}

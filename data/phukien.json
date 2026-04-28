@@ -1,0 +1,36 @@
+[{
+        "id": 1,
+        "name": "Bộ lọc không khí cao cấp",
+        "price": "500.000",
+        "image": "phukien1.jpg",
+        "description": "Bộ lọc không khí chất lượng cao cho xe Mercedes."
+    },
+    {
+        "id": 2,
+        "name": "Lốp xe mùa hè",
+        "price": "2.000.000",
+        "image": "phukien2.jpg",
+        "description": "Lốp xe mùa hè bền bỉ, an toàn."
+    },
+    {
+        "id": 3,
+        "name": "Dầu động cơ synthetic",
+        "price": "800.000",
+        "image": "phukien3.jpg",
+        "description": "Dầu động cơ tổng hợp cho hiệu suất tối ưu."
+    },
+    {
+        "id": 4,
+        "name": "Bộ phụ kiện nội thất",
+        "price": "1.500.000",
+        "image": "phukien4.jpg",
+        "description": "Phụ kiện nội thất sang trọng."
+    },
+    {
+        "id": 5,
+        "name": "Hệ thống âm thanh",
+        "price": "3.000.000",
+        "image": "phukien5.jpg",
+        "description": "Hệ thống âm thanh cao cấp."
+    }
+]

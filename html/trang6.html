@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes Layout</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-4.0.0.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial
+        }
+        
+        .container {
+            width: 1000px;
+            margin: auto
+        }
+        
+        header {
+            height: 120px;
+            background: black;
+            color: white;
+            position: relative;
+        }
+        
+        header h2 {
+            position: absolute;
+            top: 20px;
+            left: 20px
+        }
+        
+        header p {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            color: #aaa
+        }
+        
+        header ul {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        header ul li {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        header ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        section {
+            width: 100%;
+            height: 600px;
+            background: black;
+            position: relative;
+        }
+        
+        .car-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .car-info {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            color: white;
+        }
+        
+        .car-info h2 {
+            font-size: 40px;
+        }
+        
+        .car-info p {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+        
+        #img1 {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        footer {
+            background: black;
+            color: white;
+            padding: 30px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        #card h3 {
+            margin: 10px 0
+        }
+        
+        #card p {
+            color: #aaa
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="trangchu.html">AutoCar</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/trangchu.html">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/gioithieu.html">Giới Thiệu</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="sanphamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sản phẩm
+                    </a>
+                        <ul class="dropdown-menu" aria-labelledby="sanphamDropdown">
+                            <li>
+                                <a class="dropdown-item active" href="../html/danhsach.html">Xe ô tô</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../html/phukien_danhsach.html">Phụ kiện</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/tin.html">Tin tức</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/sitemap.html">Sitemap</a>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="../html/thanhtoan.html">
+                            <i class="bi bi-cart-fill fs-5"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-outline-light" href="../html/dangnhap.html">
+                        Đăng nhập
+                    </a>
+                    </li>
+
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="../html/dangky.html">
+                        Đăng ký
+                    </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h2>Mercedes-Benz</h2>
+            <p>Luxury Performance Cars</p>
+        </header>
+        <section>
+            <img src="../img/car6.jpg" alt="" id="img1">
+
+            <div class="car-info">
+                <h2>Mercedes-AMG G63 Edition 1</h2>
+                <p>Giá từ 2.086.000.000 đ</p>
+                <a href="../html/danhsach.html" class="btn btn-primary">Quay lại danh sách</a>
+                <button class="btn btn-success ms-2" onclick="addToCart('Mercedes-AMG G63 Edition 1', '2086000000')">Thêm vào giỏ hàng</button>
+            </div>
+        </section>
+        <footer>
+            <div class="grid">
+                <div class="card">
+                    <img src="../IMG/gle450ngt.jpg" alt="">
+                    <h3>Ngoại thất</h3>
+                    <p>GLE 450 4MATIC sở hữu thiết kế SUV hiện đại với sự kết hợp hài hòa giữa sang trọng và thể thao. Thân xe mạnh mẽ với các đường gân dập nổi rõ nét, kết hợp cùng lưới tản nhiệt đặc trưng và hệ thống đèn LED sắc sảo, tạo nên vẻ ngoài năng
+                        động và cuốn hút trong mọi góc nhìn.</p>
+                </div>
+
+                <div class="card">
+                    <img src="../IMG/gle450 nt.jpg" alt="">
+                    <h3>Nội thất</h3>
+                    <p>Khoang nội thất rộng rãi, được trang bị các vật liệu cao cấp và công nghệ tiên tiến. Hệ thống màn hình kép MBUX liền mạch mang đến trải nghiệm điều khiển trực quan, trong khi đèn viền nội thất giúp không gian trở nên hiện đại và ấm
+                        cúng hơn. Mọi chi tiết đều hướng đến sự tiện nghi cho cả người lái và hành khách.</p>
+                </div>
+
+                <div class="card">
+                    <img src="../IMG/mercedes-benz-gle-11.jpg" alt="">
+                    <h3>Hiệu suất</h3>
+                    <p>Động cơ 6 xi-lanh thẳng hàng kết hợp công nghệ EQ Boost mang lại khả năng vận hành mạnh mẽ nhưng vẫn mượt mà và tiết kiệm nhiên liệu. Hệ dẫn động 4MATIC giúp xe linh hoạt trên nhiều loại địa hình, từ đô thị đến đường trơn trượt hay
+                        off-road nhẹ.</p>
+                </div>
+
+                <div class="card">
+                    <img src="../IMG/ge450kđh.jpg" alt="">
+                    <h3>Khí động học</h3>
+                    <p>Thiết kế thân xe được tối ưu để giảm lực cản không khí, góp phần cải thiện hiệu suất và độ ổn định khi chạy tốc độ cao. Kết hợp với hệ thống treo thích ứng, GLE mang lại cảm giác lái êm ái nhưng vẫn chắc chắn và kiểm soát tốt.</p>
+                </div>
+            </div>
+        </footer>
+
+        <footer class="bg-dark text-white text-center p-3">
+            <p>© 2026 AutoCar | Hotline: 0123 456 789 | <a href="../html/sitemap.html" class="text-light">Sitemap</a></p>
+        </footer>
+    </div>
+
+    <script src="../js/cart.js"></script>
+</body>
+
+</html>

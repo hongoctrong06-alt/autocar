@@ -1,0 +1,111 @@
+[{
+        "id": 1,
+        "name": "Mercedes-Benz A200 2022",
+        "price": "1 Tỷ 339 Triệu",
+        "image": "car1.jpg",
+        "year": "2022",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "Quận Gò Vấp, TP.HCM"
+    },
+    {
+        "id": 2,
+        "name": "Mercedes-AMG GT 53 4MATIC+",
+        "price": "5 Tỷ 999 Triệu",
+        "image": "car2.jpg",
+        "year": "2023",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "Quận Tân Bình, TP.HCM"
+    },
+    {
+        "id": 3,
+        "name": "Mercedes-Benz C300 AMG",
+        "price": "2 Tỷ 099 Triệu",
+        "image": "car3.jpg",
+        "year": "2023",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "TP. Hồ Chí Minh"
+    },
+    {
+        "id": 4,
+        "name": "Mercedes-Benz CLA 250",
+        "price": "2 Tỷ 086 Triệu",
+        "image": "car4.jpg",
+        "year": "2019",
+        "condition": "Xe cũ",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "Quận Tân Bình, TP.HCM"
+    },
+    {
+        "id": 5,
+        "name": "Mercedes-Benz E300 AMG",
+        "price": "3 Tỷ 259 Triệu",
+        "image": "car5.jpg",
+        "year": "2023",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "TP. Hồ Chí Minh"
+    },
+    {
+        "id": 6,
+        "name": "Mercedes-AMG G63 Edition 1",
+        "price": "2 Tỷ 086 Triệu",
+        "image": "car6.jpg",
+        "year": "2023",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "Quận Gò Vấp, TP.HCM"
+    },
+    {
+        "id": 7,
+        "name": "Mercedes-Benz GLC 300 4MATIC",
+        "price": "2 Tỷ 839 Triệu",
+        "image": "car7.jpg",
+        "year": "2023",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "Quận Tân Bình, TP.HCM"
+    },
+    {
+        "id": 8,
+        "name": "Mercedes-Benz GLE 450 4MATIC",
+        "price": "3 Tỷ 999 Triệu",
+        "image": "car8.jpg",
+        "year": "2023",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "TP. Hồ Chí Minh"
+    },
+    {
+        "id": 9,
+        "name": "Mercedes-Maybach GLS 600",
+        "price": "13 Tỷ 880 Triệu",
+        "image": "car9.jpg",
+        "year": "2023",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "Quận Tân Bình, TP.HCM"
+    },
+    {
+        "id": 10,
+        "name": "Mercedes-Benz S450 Luxury",
+        "price": "6 Tỷ 448 Triệu",
+        "image": "car10.jpg",
+        "year": "2023",
+        "condition": "Xe mới",
+        "fuel": "Xăng",
+        "transmission": "Số tự động",
+        "location": "Quận Gò Vấp, TP.HCM"
+    }
+]

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes Layout</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-4.0.0.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial
+        }
+        
+        .container {
+            width: 1000px;
+            margin: auto
+        }
+        
+        header {
+            height: 120px;
+            background: black;
+            color: white;
+            position: relative;
+        }
+        
+        header h2 {
+            position: absolute;
+            top: 20px;
+            left: 20px
+        }
+        
+        header p {
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            color: #aaa
+        }
+        
+        header ul {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        header ul li {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        
+        header ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        section {
+            width: 100%;
+            height: 600px;
+            background: black;
+            position: relative;
+        }
+        
+        .car-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .car-info {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            color: white;
+        }
+        
+        .car-info h2 {
+            font-size: 40px;
+        }
+        
+        .car-info p {
+            font-size: 22px;
+            margin-top: 10px;
+            color: black;
+        }
+        
+        #img1 {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        footer {
+            background: black;
+            color: white;
+            padding: 30px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        #card h3 {
+            margin: 10px 0
+        }
+        
+        #card p {
+            color: #aaa
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="trangchu.html">AutoCar</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/trangchu.html">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/gioithieu.html">Giới Thiệu</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="sanphamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sản phẩm
+                    </a>
+                        <ul class="dropdown-menu" aria-labelledby="sanphamDropdown">
+                            <li>
+                                <a class="dropdown-item active" href="../html/danhsach.html">Xe ô tô</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../html/phukien_danhsach.html">Phụ kiện</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/tin.html">Tin tức</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/sitemap.html">Sitemap</a>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="../html/thanhtoan.html">
+                            <i class="bi bi-cart-fill fs-5"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-outline-light" href="../html/dangnhap.html">
+                        Đăng nhập
+                    </a>
+                    </li>
+
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="../html/dangky.html">
+                        Đăng ký
+                    </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h2>Mercedes-Benz</h2>
+            <p>Luxury Performance Cars</p>
+        </header>
+        <section>
+            <img src="../img/car10.jpg" alt="" id="img1">
+
+            <div class="car-info">
+                <h2>Mercedes-Benz S450 Luxury</h2>
+                <p>Giá từ 6.448.000.000 đ</p>
+                <a href="../html/danhsach.html" class="btn btn-primary">Quay lại danh sách</a>
+                <button class="btn btn-success ms-2" onclick="addToCart('Mercedes-Benz S450 Luxury', '6448000000')">Thêm vào giỏ hàng</button>
+            </div>
+        </section>
+        <footer>
+            <div class="grid">
+                <div class="card">
+                    <img src="../IMG/g63ngt.jpg" alt="">
+                    <h3>Ngoại thất</h3>
+                    <p>Mercedes-Benz G63 AMG sở hữu thiết kế vuông vức mang tính biểu tượng, giữ nguyên DNA huyền thoại của dòng G-Class. Các đường nét mạnh mẽ, thân xe cao lớn cùng phần đầu xe nổi bật với lưới tản nhiệt Panamericana đặc trưng của AMG tạo
+                        nên vẻ ngoài uy lực và sang trọng. Cụm đèn LED tròn cổ điển kết hợp cùng bộ mâm thể thao cỡ lớn càng làm tăng thêm sự bề thế và cá tính cho chiếc SUV này.</p>
+                </div>
+
+                <div class="card">
+                    <img src="../IMG/g63nt.jpg" alt="">
+                    <h3>Nội thất</h3>
+                    <p>Khoang nội thất của G63 AMG là sự kết hợp hoàn hảo giữa sự sang trọng và chất thể thao. Chất liệu da cao cấp, ốp kim loại và carbon được hoàn thiện tinh xảo, mang lại cảm giác đẳng cấp ngay khi bước vào xe. Hệ thống màn hình kép kỹ
+                        thuật số hiện đại cùng giao diện MBUX thông minh giúp việc điều khiển trở nên tiện lợi và trực quan. Không gian rộng rãi, ghế ngồi ôm sát cùng hệ thống đèn ambient đa màu tạo nên trải nghiệm cao cấp cho cả người lái và hành khách.</p>
+                </div>
+
+                <div class="card">
+                    <img src="../IMG/g63hx.jpg" alt="">
+                    <h3>Hiệu suất</h3>
+                    <p>G63 AMG được trang bị động cơ V8 tăng áp kép mạnh mẽ, mang đến khả năng tăng tốc ấn tượng và sức mạnh vượt trội. Hệ dẫn động 4MATIC cùng hộp số tự động hiệu năng cao giúp xe vận hành mạnh mẽ trên cả đường phố lẫn địa hình khó. Khả
+                        năng phản hồi nhanh và tiếng pô đặc trưng AMG tạo nên cảm giác lái đầy phấn khích.</p>
+                </div>
+
+                <div class="card">
+                    <img src="../IMG/g63kh.jpg" alt="">
+                    <h3>Khí động học</h3>
+                    <p>Dù mang thiết kế vuông vức đặc trưng, G63 AMG vẫn được tối ưu về khả năng vận hành và độ ổn định. Hệ thống treo tiên tiến kết hợp với khung gầm chắc chắn giúp xe di chuyển êm ái, bám đường tốt và sẵn sàng chinh phục nhiều loại địa
+                        hình khác nhau. Đây là mẫu SUV hội tụ giữa sức mạnh, sự sang trọng và tính biểu tượng.</p>
+                </div>
+            </div>
+        </footer>
+
+        <footer class="bg-dark text-white text-center p-3">
+            <p>© 2026 AutoCar | Hotline: 0123 456 789 | <a href="../html/sitemap.html" class="text-light">Sitemap</a></p>
+        </footer>
+    </div>
+
+    <script src="../js/cart.js"></script>
+</body>
+
+</html>

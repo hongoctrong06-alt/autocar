@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trang tin tức</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery-4.0.0.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+        .main-content {
+            padding: 2.5rem 0 3rem;
+        }
+        
+        .news-card {
+            background: #ffffff63;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        /* Hiệu ứng nổi lên khi hover */
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+        }
+        /* -- Vùng ảnh thumbnail -- */
+        
+        .card-img-wrap {
+            position: relative;
+            overflow: hidden;
+            height: 170px;
+            /* Chiều cao cố định để đồng đều */
+        }
+        
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ảnh lấp đầy, không méo */
+            transition: transform 0.4s ease;
+        }
+        
+        .news-card:hover .card-img-wrap img {
+            transform: scale(1.06);
+            /* Zoom nhẹ khi hover */
+        }
+        /* -- Badge ngày đăng trên ảnh -- */
+        
+        .date-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--red);
+            color: #ffffff8b;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: 'Barlow', sans-serif;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        /* -- Badge lượt xem (nếu có) -- */
+        
+        .view-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 2px 7px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        /* -- Phần nội dung thẻ -- */
+        
+        .card-body-custom {
+            padding: 14px 14px 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title-text {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-transform: uppercase;
+            line-height: 1.45;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .card-desc {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            /* Giới hạn 3 dòng */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+        
+        .Banner {
+            background: url(../img/hinh-nen-sieu-xe-32.jpg) no-repeat center;
+            background-size: cover;
+            height: 500px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .Banner h1 {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .car-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="trangchu.html">AutoCar</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/trangchu.html">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/gioithieu.html">Giới Thiệu</a>
+                    </li>
+
+                    <!-- Dropdown Sản phẩm -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="sanphamDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sản phẩm
+                    </a>
+                        <ul class="dropdown-menu" aria-labelledby="sanphamDropdown">
+                            <li>
+                                <a class="dropdown-item" href="../html/danhsach.html">Xe ô tô</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../html/phukien_danhsach.html">Phụ kiện</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../html/tin.html">Tin tức</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/sitemap.html">Sitemap</a>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="../html/thanhtoan.html">
+                            <i class="bi bi-cart-fill fs-5"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-outline-light" href="../html/dangnhap.html">
+                        Đăng nhập
+                    </a>
+                    </li>
+
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="../html/dangky.html">
+                        Đăng ký
+                    </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="row g-3">
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/car1.jpg" alt="Mercedes-AMG GT 53" />
+                            <span class="date-badge">
+                <i class="bi bi-calendar3"></i> 13/04/2026</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 2500</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Mercedes-AMG GT 53 4MATIC+ hạ giá sốc cả tỷ đồng, tiền giảm đủ tậu thêm chiếc Camry sang chảnh</div>
+                            <p class="card-desc">Khách hàng mua xe Mercedes-AMG GT 53 4MATIC+ ở thời điểm hiện tại sẽ được hưởng mức giá niêm yết mới - 4,799 tỷ đồng, giảm tới 1,2 tỷ đồng...</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/car3.jpg" alt="Mercedes C300 AMG" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 2/07/2025</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 3400</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Mercedes C300 AMG - vừa đủ để hiểu xe sang</div>
+                            <p class="card-desc">Tầm giá 2 tỷ đồng, C300 AMG thế hệ mới cân bằng tiện nghi cao cấp lẫn niềm vui sau tay lái, điều ít có đối thủ nào sở hữu...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/car5.jpg" alt="Mercedes E 300 AMG" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 16/10/2025</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 2949</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Mercedes E 300 AMG giá 3,209 tỷ đồng chào thị trường Việt Nam ngày 16/10.</div>
+                            <p class="card-desc">E-class mới thay đổi toàn diện thiết kế từ trong ra ngoài. Kiểu dáng nuột nà phong cách unisex vẫn vậy..</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/car10.jpg" alt="Mercedes-Benz S450" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 3/01/2026</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 3400</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Mercedes-Benz S450 | Mercedes Hà Nội</div>
+                            <p class="card-desc">Luôn dẫn đầu về doanh số trong phân khúc khoảng giá 4-5 tỷ đồng, lần này Mercedes-Benz vẫn giữ trên thị trường với 2 cái tên S450 và S450 Luxury với...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/GLC300.webp" alt="Mercedes GLC 200" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 8/12/2025</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 4500</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Mercedes GLC 200 2018 giá 850 triệu nên mua?</div>
+                            <p class="card-desc">Trong bối cảnh các dòng xe điện (EV) đang chiếm lĩnh thị trường, phân khúc SUV hạng sang đã qua sử dụng, đặc biệt là dòng Mercedes-Benz GLC đời...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/GLE450.avif" alt=" Mercedes-Benz GLE 450" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 7/12/2025</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 3675</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Đánh giá nhanh Mercedes-Benz GLE 450 2020: Tăng mọi thứ có thể để chiều khách Việt</div>
+                            <p class="card-desc">Chuyển sang thế hệ mới, Mercedes-Benz GLE thay đổi toàn diện về thiết kế, tăng kích thước, bổ sung trang bị, tăng giá...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/GLS600.webp" alt="Mercedes-Maybach GLS 600" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 28/04/2022</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 6767</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Mercedes-Maybach GLS 600 bản đặc biệt độc nhất Việt Nam</div>
+                            <p class="card-desc">Mẫu SUV cận siêu sang GLS 600 Maybach số lượng giới hạn 100 chiếc, Việt Nam có một xe duy nhất, giá khoảng 15 tỷ đồng..</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/BMW118I.jpg" alt="BMW 118i" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 7/03/2026</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 3900</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Mẫu xe có kích thước nhỏ nhất nhà BMW tại Việt Nam - BMW 118i có giá bán công bố 1,439 tỉ đồng.</div>
+                            <p class="card-desc">BMW 118i tại Việt Nam trang bị dòng động cơ BMW TwinPower Turbo 3 xi lanh thẳng hàng...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/CLA250.jpg" alt="Mercedes-Benz CLA 250" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 17/02/2025</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i> 3667</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Mercedes-Benz CLA 250 Plus 2026 ra mắt: Sedan điện 800V, phạm vi hoạt động gần 800 km</div>
+                            <p class="card-desc">Mercedes-Benz vừa chính thức giới thiệu CLA 250 Plus 2026 - mẫu sedan thuần điện hoàn toàn mới thuộc thế hệ thứ ba..,</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---- BÀI 10 ---- -->
+                <div class="col-lg-3 col-md-6 col-12 d-flex">
+                    <div class="news-card w-100">
+                        <div class="card-img-wrap">
+                            <img src="../img/car6.jpg" alt="Mercedes-AMG G63" />
+                            <span class="date-badge"><i class="bi bi-calendar3"></i> 14/02/2022</span>
+                            <span class="view-badge"><i class="bi bi-eye"></i>2367</span>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="card-title-text">Bản độ SUV ‘nhái’ theo Mercedes-AMG G63</div>
+                            <p class="card-desc">TPO - Mẫu SUV Tank 300 được các thợ độ Thái Lan "lột xác" theo phong cách của Mercedes-AMG G63, nhưng chi phí chỉ bằng 1/5 so với chiếc xe Đức.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+    </section>
+
+    <footer class="bg-dark text-white text-center p-3">
+        <p>© 2026 AutoCar | Hotline: 0123 456 789 | <a href="../html/sitemap.html" class="text-light">Sitemap</a></p>
+    </footer>
+</body>
+
+</html>
